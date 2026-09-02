@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b0c0e">
+  <title>Panel de inventario | Pole Position Canarias</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="legal-header">
+    <div class="shell">
+      <a class="brand" href="index.html" aria-label="Pole Position, inicio">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+        <span class="brand-copy"><strong>POLE POSITION</strong><small>PANEL DE INVENTARIO</small></span>
+      </a>
+      <a class="legal-back" href="index.html">← Volver a la web</a>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <div class="shell admin-content">
+
+      <section id="admin-login-view" class="admin-login">
+        <h1>Acceso</h1>
+        <label>Clave de administración
+          <input type="password" id="admin-token-input" autocomplete="off">
+        </label>
+        <button class="button button-primary" type="button" id="admin-login-btn">Entrar</button>
+        <p class="admin-msg" id="admin-login-msg"></p>
+      </section>
+
+      <section id="admin-panel-view" hidden>
+        <div class="admin-toolbar">
+          <h1>Inventario</h1>
+          <button class="admin-logout" type="button" id="admin-logout-btn">Cerrar sesión</button>
+        </div>
+        <p class="admin-msg" id="admin-panel-msg"></p>
+        <div class="admin-wrap">
+          <table class="admin-table" id="admin-table">
+            <thead>
+              <tr>
+                <th>Moto</th>
+                <th>Estado</th>
+                <th>Precio (€)</th>
+                <th>Km</th>
+                <th>Año</th>
+                <th>Orden</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="admin-table-body"></tbody>
+          </table>
+        </div>
+
+        <div class="admin-add">
+          <h2>Añadir moto nueva</h2>
+          <form id="admin-add-form">
+            <label>Slug (identificador único)<input name="slug" required placeholder="ej. suzuki-gsx-8s-2026"></label>
+            <label>Marca<input name="brand" required></label>
+            <label>Modelo<input name="model" required></label>
+            <label>Familia<input name="family" required placeholder="ej. Naked deportiva"></label>
+            <label>Condición
+              <select name="condition">
+                <option value="nueva">Nueva</option>
+                <option value="km0">KM0</option>
+                <option value="ocasion">Ocasión</option>
+              </select>
+            </label>
+            <label>Etiqueta de condición<input name="condition_label" required placeholder="ej. Ocasión · 2024"></label>
+            <label>Precio (vacío = a consultar)<input name="price" type="number" min="0" step="1"></label>
+            <label>Año<input name="year" type="number" required></label>
+            <label>Km<input name="km" type="number" min="0" value="0"></label>
+            <label>Categorías (separadas por coma)<input name="categories" placeholder="urbana, scooter, a2"></label>
+            <label>Imagen (ruta en /assets)<input name="image_path" required placeholder="assets/motos/inventario/archivo.webp"></label>
+            <label>Texto alternativo de la imagen<input name="image_alt" required></label>
+            <label>Tema visual (clase CSS de la tarjeta)<input name="theme" value="card-white"></label>
+            <label>Estado
+              <select name="status">
+                <option value="draft">Borrador (oculto)</option>
+                <option value="available" selected>Disponible</option>
+                <option value="reserved">Reservada</option>
+                <option value="sold">Vendida</option>
+              </select>
+            </label>
+            <label class="wide">Descripción<textarea name="description" rows="2" required></textarea></label>
+            <label class="wide">Ficha técnica (JSON, ej: {"Cilindrada":"650 cc","Carné":"A2"})<textarea name="specs" rows="2">{}</textarea></label>
+            <button class="button button-primary" type="submit">Añadir al inventario</button>
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
