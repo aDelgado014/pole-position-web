@@ -31,7 +31,7 @@
   <link rel="manifest" href="assets/site.webmanifest">
 
   <link rel="preload" as="image" href="assets/hero-gran-canaria.webp" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=6">
 
   <script type="application/ld+json">
   {
@@ -84,14 +84,14 @@
   <header class="site-header" id="inicio">
     <div class="nav-wrap">
       <a class="brand" href="#inicio" aria-label="Pole Position, inicio">
-        <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+        <img class="brand-logo-mark" src="assets/icon-512.png" alt="" aria-hidden="true">
         <span class="brand-copy"><strong>POLE POSITION</strong><small>CANARIAS · 25 AÑOS DE PASIÓN</small></span>
       </a>
       <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">
         <span></span><span></span>
       </button>
       <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
-        <a href="#motos">Tienda</a>
+        <a href="#motos">Motos</a>
         <a href="#marcas">Marcas</a>
         <a href="#taller">Taller</a>
         <a href="#nosotros">Nosotros</a>
@@ -102,27 +102,31 @@
 
   <main id="contenido">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-bg" role="img" aria-label="Moto de aventura en una carretera costera volcánica de Gran Canaria"></div>
+      <div class="hero-bg" role="img" aria-label="Asesor de Pole Position ayudando a un cliente junto a una moto en el concesionario"></div>
       <div class="hero-shade"></div>
       <div class="hero-content shell">
-        <p class="eyebrow"><span></span> PASIÓN SOBRE DOS RUEDAS</p>
-        <h1 id="hero-title">La isla te espera.<br><em>Sal a rodar.</em></h1>
-        <p class="hero-lead">Motos con carácter, asesoramiento de verdad y un taller que cuida cada detalle. Todo empieza en Pole Position.</p>
+        <p class="eyebrow"><span></span> TU EQUIPO EN LA ISLA</p>
+        <h1 id="hero-title">No vendemos motos.<br><em>Encontramos la tuya.</em></h1>
+        <p class="hero-lead">Llevamos 25 años acompañando a motoristas canarios. Te escuchamos, te asesoramos y nos quedamos a tu lado mucho después de la entrega.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#motos">Ver motos <span>↗</span></a>
-          <a class="button button-ghost" href="#contacto">Reservar una prueba</a>
+          <a class="button button-primary" href="#contacto">Cuéntanos qué buscas <span aria-hidden="true">→</span></a>
+          <a class="button button-ghost" href="#motos">Ver motos</a>
         </div>
+        <div class="hero-trust"><span>Las Palmas de Gran Canaria</span><span>Taller oficial y posventa</span></div>
       </div>
-      <div class="hero-meta shell" aria-label="Datos destacados">
-        <div><strong>25+</strong><span>años de pasión</span></div>
-        <div><strong>5</strong><span>marcas oficiales</span></div>
-        <div><strong>4,4/5</strong><span>valoración Google</span></div>
-        <a href="tel:+34928485092"><small>¿Hablamos?</small><strong>928 48 50 92</strong></a>
+    </section>
+
+    <section class="choice-path" aria-label="Cómo te ayudamos a encontrar tu moto">
+      <div class="choice-path-inner shell">
+        <article><strong>01</strong><div><h2>Te escuchamos</h2><p>Cuéntanos cómo eres y qué necesitas. Analizamos tu uso, presupuesto y expectativas sin compromiso.</p></div></article>
+        <article><strong>02</strong><div><h2>Probamos contigo</h2><p>Te proponemos opciones reales y probamos hasta que encuentres la moto que encaja contigo.</p></div></article>
+        <article><strong>03</strong><div><h2>Seguimos a tu lado</h2><p>Taller oficial, mantenimiento, accesorios y consejos para que disfrutes muchos kilómetros.</p></div></article>
+        <aside><h2>Taller oficial<br>y posventa</h2><p>Mecánica especializada<br>Recambios originales<br>Garantía oficial<br>Revisión pre-ITV</p></aside>
       </div>
     </section>
 
     <section class="brand-strip" id="marcas" aria-label="Marcas oficiales">
-      <p>Distribuidor oficial en Las Palmas</p>
+      <p>Distribuidores oficiales</p>
       <div class="brand-list">
         <span>SUZUKI</span><span>ROYAL ENFIELD</span><span>ZONTES</span><span>PEUGEOT</span><span>SUPER SOCO</span>
       </div>
@@ -272,9 +276,9 @@
 
   <footer class="site-footer">
     <div class="shell footer-grid">
-      <div><a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true"><i></i><i></i></span><span class="brand-copy"><strong>POLE POSITION</strong><small>CANARIAS · 25 AÑOS DE PASIÓN</small></span></a><p>Pasión por las motos. Compromiso con quien las conduce.</p></div>
+      <div><a class="brand footer-brand" href="#inicio"><img class="brand-logo-mark" src="assets/icon-512.png" alt="" aria-hidden="true"><span class="brand-copy"><strong>POLE POSITION</strong><small>CANARIAS · 25 AÑOS DE PASIÓN</small></span></a><p>Pasión por las motos. Compromiso con quien las conduce.</p></div>
       <div><h3>Horario</h3><p>Lunes a viernes<br>09:00–13:00 · 15:00–19:00</p><p>Sábado y domingo · Cerrado</p></div>
-      <div><h3>Enlaces</h3><a href="#motos">Tienda</a><a href="#taller">Taller</a><a href="#contacto">Contacto</a><a href="https://www.instagram.com/poleposition.sl/" target="_blank" rel="noopener">Instagram ↗</a></div>
+      <div><h3>Enlaces</h3><a href="#motos">Motos</a><a href="#taller">Taller</a><a href="#contacto">Contacto</a><a href="https://www.instagram.com/poleposition.sl/" target="_blank" rel="noopener">Instagram ↗</a></div>
       <div><h3>Contacto</h3><a href="tel:+34928485092">928 48 50 92</a><a href="mailto:info@polepositioncanarias.es">info@polepositioncanarias.es</a><p>C. Joaquín Blume, 21<br>Las Palmas de Gran Canaria</p></div>
     </div>
     <div class="shell footer-bottom"><span>© <span id="year"></span> Pole Position Canarias</span><span><a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · <a href="aviso-legal.html">Aviso legal</a></span></div>
@@ -290,6 +294,6 @@
   </aside>
 
   <script src="inventory.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

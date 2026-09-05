@@ -392,6 +392,61 @@ if ('serviceWorker' in navigator) {
 }
 
 
+/* Ritmo de scroll: progreso continuo y revelado suave de las secciones. */
+(function initScrollTransitions() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+
+  const root = document.documentElement;
+  root.classList.add('js-reveal-active');
+
+  const progress = document.createElement('div');
+  progress.className = 'scroll-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  document.body.prepend(progress);
+
+  const revealTargets = document.querySelectorAll(
+    '.choice-path-inner, .brand-strip, .inventory .section-heading, .inventory-tools, #inventory-grid, .service-grid, .experience, .reviews-head, .review-grid, .contact-grid, .footer-grid'
+  );
+  revealTargets.forEach((target) => target.classList.add('scroll-reveal'));
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.01, rootMargin: '0px 0px -6% 0px' });
+  revealTargets.forEach((target) => revealObserver.observe(target));
+
+  function revealVisible() {
+    revealTargets.forEach((target) => {
+      if (target.classList.contains('is-visible')) return;
+      const rect = target.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.94 && rect.bottom > 0) {
+        target.classList.add('is-visible');
+        revealObserver.unobserve(target);
+      }
+    });
+  }
+
+  let ticking = false;
+  function updateScrollProgress() {
+    revealVisible();
+    const available = root.scrollHeight - window.innerHeight;
+    const ratio = available > 0 ? Math.min(1, Math.max(0, window.scrollY / available)) : 0;
+    root.style.setProperty('--scroll-progress', ratio.toFixed(4));
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(updateScrollProgress);
+  }, { passive: true });
+  updateScrollProgress();
+})();
+
 /* Scrollytelling: despiece de la moto ligado al scroll (sección Taller) */
 (function initScrolly() {
   const section = document.querySelector('#detalle-taller');

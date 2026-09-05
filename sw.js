@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pole-position-v1';
+const CACHE_NAME = 'pole-position-v5';
 const APP_SHELL = [
   '/',
   '/styles.css',
